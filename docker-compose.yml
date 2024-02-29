@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  node:
+    build: 
+      dockerfile: Dockerfile.dev
+    user: 1000:1000
+    container_name: node
+    restart: unless-stopped
+    volumes:
+      - ./app:/srv/app
+    working_dir: /srv/app
+    command: > 
+      bash -c "
+        tail -f
+      "

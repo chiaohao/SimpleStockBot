@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "@fugle/backtest": "^0.1.0-beta.2",
+    "@fugle/marketdata": "^1.0.3",
+    "@fugle/trade": "^2.0.0",
+    "axios": "^1.6.3",
+    "danfojs-node": "^1.1.2",
+    "dayjs": "^1.11.10",
+    "discord.js": "^14.14.1",
+    "technicalindicators": "^3.1.0"
+  },
+  "name": "app",
+  "version": "0.0.1",
+  "description": "Stock Bot",
+  "main": "main.js",
+  "scripts": {
+    "compile": "npx tsc",
+    "backtest": "npx tsc && node backtest.js",
+    "trade": "export $(dbus-launch) && npx tsc && node trade.js",
+    "debug": "export $(dbus-launch) && npx tsc && node debug.js"
+  },
+  "author": "chiaohao",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.3.2"
+  }
+}
