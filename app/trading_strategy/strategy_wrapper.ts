@@ -28,11 +28,11 @@ export class SmaCrossStrategyWrapper implements IStrategyWrapper {
 
     calculateIntention(): { tradingIntention: TradingIntention; price: number; } {
         const crossUp = this._strategy.getSignal('crossUp');
-        const sarInBar = this._strategy.getSignal('crossDown');
+        const crossDown = this._strategy.getSignal('crossDown');
         const close = this._strategy.data['close'].values;
         if (crossUp[crossUp.length - 1])
             return { tradingIntention: TradingIntention.Buy, price: close[close.length - 1] };
-        else if (sarInBar[sarInBar.length - 1])
+        else if (crossDown[crossDown.length - 1])
             return { tradingIntention: TradingIntention.Sell, price: close[close.length - 1] };
         else
             return { tradingIntention: TradingIntention.DoNothing, price: NaN };
