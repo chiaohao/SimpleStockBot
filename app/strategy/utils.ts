@@ -57,7 +57,7 @@ const buyFixedSellAllLong = (param : TradeParams) => {
         param.strategy.buy({ size: param.fixedTradeSize ?? -1 });
     }
     if (param.sellSignal && ownedSize > 0) {
-        param.strategy.sell({ size: ownedSize });
+        param.strategy.trades.reverse().forEach(trade => param.strategy.sell({ size: trade.size }));
     }
 
 }
